@@ -24,7 +24,6 @@ document.querySelector("form").addEventListener("submit", function (event) {
     displayColors(palette, input);
     updateBackground(palette);
   } else {
-    console.error(`${input} is not a valid Hexadecimal color.`);
     notyf.error(`${input} is not a valid Hexadecimal color.`);
   }
 });
@@ -72,11 +71,9 @@ document.querySelector("main").addEventListener("click", function (event) {
     navigator.clipboard
       .writeText(colorValue)
       .then(() => {
-        console.log(`Copied ${colorValue} to clipboard`);
         notyf.success(`Copied ${colorValue} to clipboard`);
       })
       .catch((err) => {
-        console.error("Error copying color to clipboard: ", err);
         notyf.error(`Not copied ${colorValue} to clipboard`);
       });
   }
