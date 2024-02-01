@@ -53,5 +53,3 @@ document.querySelector("main").addEventListener("click", function (event) {
   }
 });
 
-import { Notyf } from "notyf";
-const notyf = new Notyf();
