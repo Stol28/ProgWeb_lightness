@@ -18,7 +18,6 @@ const input = document.querySelector("input").value;
 
   if (/^#[0-9A-F]{6}$/i.test(input)) {
     const palette = generatePalette(input);
-    console.log(palette);
     displayColors(palette, input);
     updateBackground(palette);
   } else {
@@ -49,13 +48,11 @@ function displayColors(palette, inputColor) {
 }
 
 function updateBackground(palette) {
-  console.log("background changed");
   const gradient = palette
     .map((color) => `hsl(${color[0]}deg, ${color[1]}%, ${color[2]}%)`)
     .join(", ");
   document.body.style.background = `linear-gradient(-45deg, ${gradient})`;
   document.body.style.backgroundSize = "400% 400%";
-  console.log(gradient);
 
 }
 
