@@ -13,12 +13,14 @@ function generatePalette(hexColor, interval = 10) {
 }
 
 document.querySelector("form").addEventListener("submit", function (event) {
-  event.preventDefault();
-  const input = document.querySelector("input").value;
+event.preventDefault();
+const input = document.querySelector("input").value;
 
   if (/^#[0-9A-F]{6}$/i.test(input)) {
     const palette = generatePalette(input);
     console.log(palette);
+    displayColors(palette);
+    updateBackground(palette);
   } else {
     console.error(`${input} is not a valid Hexadecimal color.`);
   }
@@ -32,6 +34,7 @@ function displayColors(palette) {
 
   palette.forEach((colorHSL) => {
     const color = new Color(colorHSL);
+    console.log("test2");
     color.display(mainElement);
   });
 }
@@ -52,4 +55,3 @@ document.querySelector("main").addEventListener("click", function (event) {
     });
   }
 });
-

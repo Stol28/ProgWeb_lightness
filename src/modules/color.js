@@ -16,7 +16,6 @@ class Color {
     colorDiv.className = 'color';
     colorDiv.dataset.color = this.#hex;
     colorDiv.style.backgroundColor = this.#hex;
-
     const textColor = this.#hsl[2] < 60 ? '#ffffff' : '#000000';
     const textP = document.createElement('p');
     textP.style.color = textColor;
