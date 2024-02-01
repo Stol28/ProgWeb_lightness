@@ -1,5 +1,7 @@
 // utils.js
 import convert from "color-convert";
+import { Notyf } from 'notyf';
+import 'notyf/notyf.min.css'; // for React, Vue and Svelte
 
 function generatePalette(hexColor, interval = 10) {
   const [h, s, l] = convert.hex.hsl(hexColor);
@@ -61,6 +63,25 @@ document.querySelector("main").addEventListener("click", function (event) {
     const color = event.target.dataset.color;
     navigator.clipboard.writeText(color).then(() => {
       console.log(`Copied ${color} to clipboard`);
+    });
+  }
+});
+
+
+document.querySelector("main").addEventListener("click", function(event) {
+  // Trouver l'élément cliqué ayant la classe 'color'
+  let colorElement = event.target.closest('.color');
+  
+  // Si un élément de couleur a été cliqué
+  if (colorElement) {
+    // Récupérer la valeur de l'attribut data-color
+    const colorValue = colorElement.dataset.color;
+    
+    // Copier cette valeur dans le presse-papier
+    navigator.clipboard.writeText(colorValue).then(() => {
+      console.log(`Copied ${colorValue} to clipboard`);
+    }).catch(err => {
+      console.error('Error copying color to clipboard: ', err);
     });
   }
 });
